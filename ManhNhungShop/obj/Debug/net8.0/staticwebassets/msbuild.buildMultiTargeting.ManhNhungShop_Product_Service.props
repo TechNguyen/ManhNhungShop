@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ManhNhungShop_Product_Service.props" />
+</Project>

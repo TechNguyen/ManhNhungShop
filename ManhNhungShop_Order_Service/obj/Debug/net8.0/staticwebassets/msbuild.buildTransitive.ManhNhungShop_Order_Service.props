@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\ManhNhungShop_Order_Service.props" />
+</Project>

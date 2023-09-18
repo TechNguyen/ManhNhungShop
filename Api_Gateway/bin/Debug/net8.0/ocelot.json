@@ -1,0 +1,54 @@
+{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/Product/{action}",
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/Product/{action}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44385
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/Orders/{action}",
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44353
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Order/{action}"
+    },
+    {
+      "UpstreamPathTempalte": "/Accounts/{action}",
+      "UpstreamHttpMethod": [
+        "Get",
+        "Post",
+        "PUT",
+      ], "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        "Host": "localhost",
+        "Port": 44333
+      ],
+      "DownstreamPathTemplate": "/api/Accounts/{action}",
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5231"
+  }
+}
