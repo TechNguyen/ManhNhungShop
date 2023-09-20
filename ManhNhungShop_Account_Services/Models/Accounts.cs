@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -15,5 +16,8 @@ namespace ManhNhungShop_Account_Services.Models
         [MinLength(6)]
         [Column(TypeName = "string(10)")]
         public string Password { set; get; }
+        [Required]
+        [Column(TypeName = "string(10)")]
+        public string ConfirmPassWord { set; get; } = string.Empty;
     }
 }

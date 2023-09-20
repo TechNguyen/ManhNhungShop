@@ -45,3 +45,4 @@ C:\Users\Acer\source\repos\ManhNhungShop\Api_Gateway\bin\Debug\net8.0\Microsoft.
 C:\Users\Acer\source\repos\ManhNhungShop\Api_Gateway\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Acer\source\repos\ManhNhungShop\Api_Gateway\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Acer\source\repos\ManhNhungShop\Api_Gateway\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Acer\source\repos\ManhNhungShop\Api_Gateway\obj\Debug\net8.0\Api_Gateway.sourcelink.json

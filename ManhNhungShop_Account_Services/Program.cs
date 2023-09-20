@@ -32,7 +32,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     };
 });
 
-builder.Services.AddMvc();
 builder.Services.AddScoped<IAccounts, AccountRepository>();
 
 builder.Services.AddDbContext<DbContext>(options =>
@@ -55,6 +54,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
 app.UseMvc();
 
 app.Run();

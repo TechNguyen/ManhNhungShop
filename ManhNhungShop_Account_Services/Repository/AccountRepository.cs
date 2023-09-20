@@ -16,7 +16,7 @@ namespace ManhNhungShop_Account_Services.Repository
     {
         private readonly DataAccountContext _dataAccountContext;
 
-
+      
         private readonly IConfiguration _config;
         public AccountRepository(DataAccountContext dataAccountContext) {
             _dataAccountContext = dataAccountContext;
@@ -30,12 +30,10 @@ namespace ManhNhungShop_Account_Services.Repository
             }
             return null;
         }
-        public Task<bool> Generate(AccountsDetails account)
+        public async Task<string> Generate(AccountsDetails account)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var generate = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
-
             var claims = new[]
             {
                 new Claim(ClaimTypes.NameIdentifier, account.FullName),
@@ -43,13 +41,35 @@ namespace ManhNhungShop_Account_Services.Repository
                 new Claim(ClaimTypes.Role, account.Role),
             };
             var token = new JwtSecurityToken(_config["Jwt:Issuer"], _config["Jwt:Audience"], claims, expires: DateTime.Now.AddMinutes(30), signingCredentials: generate);
-
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        public Task<bool> Verify(string username)
+
+        public async Task<bool> CreateAccount(Accounts account, string ConfirmPassword)
         {
-            throw new NotImplementedException();
+            if(account.Password != ConfirmPassword)
+            {
+                return false;
+            } else if(account.Password == ConfirmPassword && (account.UserName != "" && account.Password != ""))
+            {
+                var checkaccount = _dataAccountContext.Accounts.FirstOrDefault(p => p.UserName == account.UserName);
+                return checkaccount != null ? true : false;
+            }
+            {
+                return true;
+            }
+        }
+
+        public async Task<bool> UpdateDetails(AccountsDetails accountdetail)
+        {
+            var checkProduct = _dataAccountContext.AccountsDetails.FirstOrDefault(p => p.UserId == accountdetail.UserId);
+            if(checkProduct != null)
+            {
+                _dataAccountContext.Entry(checkProduct).CurrentValues.SetValues(accountdetail);
+                _dataAccountContext.SaveChangesAsync();
+                return true;
+            }
+            return false;
         }
     }
 }

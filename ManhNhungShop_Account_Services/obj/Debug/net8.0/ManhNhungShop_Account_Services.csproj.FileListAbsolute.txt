@@ -77,3 +77,4 @@ C:\Users\Acer\source\repos\ManhNhungShop\ManhNhungShop_Account_Services\obj\Debu
 C:\Users\Acer\source\repos\ManhNhungShop\ManhNhungShop_Account_Services\obj\Debug\net8.0\ManhNhungShop_Account_Services.pdb
 C:\Users\Acer\source\repos\ManhNhungShop\ManhNhungShop_Account_Services\obj\Debug\net8.0\ManhNhungShop_Account_Services.genruntimeconfig.cache
 C:\Users\Acer\source\repos\ManhNhungShop\ManhNhungShop_Account_Services\obj\Debug\net8.0\ref\ManhNhungShop_Account_Services.dll
+C:\Users\Acer\source\repos\ManhNhungShop\ManhNhungShop_Account_Services\obj\Debug\net8.0\ManhNhungShop_Account_Services.sourcelink.json

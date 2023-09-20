@@ -40,12 +40,35 @@
         "Get",
         "Post",
         "PUT",
-      ], "DownstreamScheme": "https",
+      ],
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
-        "Host": "localhost",
-        "Port": 44333
+        "Host"
+        :
+        "localhost",
+        "Port"
+        :
+        44333
       ],
       "DownstreamPathTemplate": "/api/Accounts/{action}",
+    }
+    {
+      "UpstreamPathTempalte": "/Payment/{action}",
+      "UpstreamHttpMethod": [
+        "Get",
+        "Post",
+        "PUT"
+      ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        "Host",
+        :,
+        "localhost",
+        "Port",
+        :,
+        44333
+      ],
+      "DownstreamPathTemplate": "/api/Payment/{action}"
     }
   ],
   "GlobalConfiguration": {

@@ -89,3 +89,4 @@ C:\Users\Acer\source\repos\ManhNhungShop\ManhNhungShop_Order_Service\obj\Debug\n
 C:\Users\Acer\source\repos\ManhNhungShop\ManhNhungShop_Order_Service\obj\Debug\net8.0\ref\ManhNhungShop_Order_Service.dll
 C:\Users\Acer\source\repos\ManhNhungShop\ManhNhungShop_Order_Service\bin\Debug\net8.0\AWSSDK.S3.dll
 C:\Users\Acer\source\repos\ManhNhungShop\ManhNhungShop_Order_Service\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Acer\source\repos\ManhNhungShop\ManhNhungShop_Order_Service\obj\Debug\net8.0\ManhNhungShop_Order_Service.sourcelink.json
