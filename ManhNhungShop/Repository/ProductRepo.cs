@@ -4,7 +4,11 @@ using ManhNhungShop.Interfaces;
 using ManhNhungShop.Models;
 using ManhNhungShop.Services;
 using ManhNhungShop_Product_Service.DataReturn;
+using ManhNhungShop_Product_Service.Models;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ManhNhungShop.Repository
 {
@@ -169,6 +173,23 @@ namespace ManhNhungShop.Repository
                 return listProduct;
             }
         }
+        // Get product by typoe
+        public async Task<List<Products>> GetProductByType(string typeProduct)
+        {
+            var dataching = _cachingServer.GetData<List<Products>>($"product?type={typeProduct}");
+            if(dataching != null)
+            {
+                //refresh data redis
+                _cachingServer.RefreshData($"product?type={typeProduct}");
+                return dataching;
+            } else
+            {
+                var dataProduct = _dbShopContext.Products.Where(p => p.ProductType == typeProduct).ToList();
+                var expiration = DateTime.Now.AddMinutes(30);
+                _cachingServer.SetData<List<Products>>($"product?type={typeProduct}", dataProduct, expiration);
+                return dataProduct;  
+            }
+        }
         //sort by money
         public ProductMainRes SortByMoney(int typesort)
         {
@@ -305,6 +326,37 @@ namespace ManhNhungShop.Repository
             return false;
         }
 
+        public async Task<bool> SaleProduct(DateTime dateSale, SaleOff saleoff)
+        {
+            if(DateTime.Now.Date == dateSale)
+            {
+                //sale off theo tung mat hang
+                if(DateTime.Now.Date == dateSale.Date)
+                {
+                    foreach (var typeProduct in saleoff.TypeProduct)
+                    {
+                        var productSaleOffs =  await GetProductByType(typeProduct);
+                        if(productSaleOffs != null)
+                        {
+                            for(int i = 0; i < productSaleOffs.Count; i++)
+                            {
+                                foreach (var product in productSaleOffs)
+                                {
+                                    UpdatePriceSaleOff(product, saleoff.SaleOffPercent);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            throw new NotImplementedException();
+        }
+
+
+        public async Task SaleOffBuying()
+        {
+
+        }
         //public Task<List<Products>> SortProductByTime(string typesort)
         //{
         //    if(typesort == "day")
@@ -316,5 +368,18 @@ namespace ManhNhungShop.Repository
         //        var listProduct = _dbShopContext.Products.Where();
         //    }
         //}
+
+        //Update Price product when has discount
+        private bool UpdatePriceSaleOff(Products product, int percent)
+        { 
+            try
+            {
+                product.ProductPrice = product.ProductPrice * (percent / 100);
+                return true;
+            } catch(Exception ex)
+            {
+                return false;
+            }
+        }
     }
 }

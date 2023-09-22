@@ -9,8 +9,6 @@ builder.Services.AddOcelot(builder.Configuration);
 var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
-
-
 app.MapControllers();
 await app.UseOcelot();
 app.Run();

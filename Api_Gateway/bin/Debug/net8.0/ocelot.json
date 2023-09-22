@@ -37,19 +37,38 @@
     {
       "UpstreamPathTempalte": "/Accounts/{action}",
       "UpstreamHttpMethod": [
-        "Get",
-        "Post",
-        "PUT",
-      ], 
+        "GET",
+        "POST",
+        "PUT"
+      ],
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
-        "Host": "localhost",
-        "Port": 44333
+        {
+          "Host": "localhost",
+          "Port": 44333
+        }
       ],
       "DownstreamPathTemplate": "/api/Accounts/{action}",
-    }
+    },
+    {
+      "UpstreamPathTempalte": "/Payment/{action}",
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44321
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Payment/{action}"
+    },
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:5231"
+    "BaseUrl": "http://localhost:1306"
   }
 }

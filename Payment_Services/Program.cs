@@ -10,7 +10,6 @@ builder.Services.AddSwaggerGen();
 
 
 
-builder.Services.AddScoped<IPayments, PaymenRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -26,5 +25,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.UseMvc();
 app.Run();

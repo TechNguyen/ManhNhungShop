@@ -2,6 +2,6 @@
 {
     public interface IPayment
     {
-        Task<bool> CreateNewPayement()
+        Task<bool> CreateNewPayement();
     } 
 }

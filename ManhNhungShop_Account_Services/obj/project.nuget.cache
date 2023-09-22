@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "S9NphD2a1+YpDdwnhSuSNI4L4BYGvLxqtberg9JW2zKdzw9to5r3zwMiwuKuEDv92kpfjmPTxHjVPTvD6rbUXg==",
+  "dgSpecHash": "A5k5IFI4uGtB2xdqKKadPCRwcXO2wTSt7PW19240Hmr7FtoXotnpO7iWoQb/0tE+YObYZhJ7rlrccj+tbIt2CQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Acer\\source\\repos\\ManhNhungShop\\ManhNhungShop_Account_Services\\ManhNhungShop_Account_Services.csproj",
+  "projectFilePath": "E:\\app\\ManhNhungShop\\ManhNhungShop_Account_Services\\ManhNhungShop_Account_Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\awssdk.core\\3.7.202.10\\awssdk.core.3.7.202.10.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\awssdk.s3\\3.7.203.16\\awssdk.s3.3.7.203.16.nupkg.sha512",

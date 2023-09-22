@@ -56,6 +56,8 @@ namespace ManhNhungShop_Account_Services.Repository
                 return checkaccount != null ? true : false;
             }
             {
+                await _dataAccountContext.Accounts.AddAsync(account);
+                _dataAccountContext.SaveChangesAsync();
                 return true;
             }
         }
@@ -66,7 +68,7 @@ namespace ManhNhungShop_Account_Services.Repository
             if(checkProduct != null)
             {
                 _dataAccountContext.Entry(checkProduct).CurrentValues.SetValues(accountdetail);
-                _dataAccountContext.SaveChangesAsync();
+                await _dataAccountContext.SaveChangesAsync();
                 return true;
             }
             return false;

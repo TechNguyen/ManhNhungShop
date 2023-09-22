@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManhNhungShop_Account_Services", "ManhNhungShop_Account_Services\ManhNhungShop_Account_Services.csproj", "{32D16148-25B1-4791-B754-ACEF8FB21049}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payment_Services", "Payment_Services\Payment_Services.csproj", "{9C4FC074-5E4E-473C-958B-0F2F8AD5C162}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManhNhung_Payment_Services", "Payment_Services\ManhNhung_Payment_Services.csproj", "{9C4FC074-5E4E-473C-958B-0F2F8AD5C162}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

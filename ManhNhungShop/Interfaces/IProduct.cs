@@ -1,6 +1,7 @@
 ﻿using ManhNhungShop.DataReturn;
 using ManhNhungShop.Models;
 using ManhNhungShop_Product_Service.DataReturn;
+using ManhNhungShop_Product_Service.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ManhNhungShop.Interfaces
@@ -17,7 +18,12 @@ namespace ManhNhungShop.Interfaces
         Task<bool> DeleteSoftProduct(int productId);
         Task<bool> RestoreProduct(int productId);
        Task<bool> DeleteProduct (int productId );
+
         //Task<List<Products>>SrtProductByTime();
+
+        Task<List<Products>> GetProductByType(string typeProduct);
+        Task<bool> SaleProduct(DateTime date, SaleOff saleoff);
+    
         bool ProductExist(int ProductId);
         bool ProductDeleteSoftExits(int productId);
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YOsivjPFOBFZF47492u63qUwJRLQV3JqDbGAkmp7cZXxD625P1vT+Nu2lFIzp2P+JE2HV8EsGEvH6UoDMQ+V+g==",
+  "dgSpecHash": "h1PgffpJ/iYKnxyOsCroPRSTexJYzYVpTieK+DgtvH0lt7mdX/VolPZpRjI2f18wLyVQnslLTZjEIcYVvIrjBw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Acer\\source\\repos\\ManhNhungShop\\ManhNhungShop\\ManhNhungShop_Product_Service.csproj",
+  "projectFilePath": "E:\\app\\ManhNhungShop\\ManhNhungShop\\ManhNhungShop_Product_Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\awssdk.core\\3.7.202.10\\awssdk.core.3.7.202.10.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\awssdk.s3\\3.7.203.16\\awssdk.s3.3.7.203.16.nupkg.sha512",

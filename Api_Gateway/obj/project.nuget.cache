@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5ynLF17PU7S15JKhtcgGNUxSy8+vQO6dtMzoOLTtIx23w3o/WZEq5wYQTpu2AxC0d3hDaMMIK2C3f99ErL8C/w==",
+  "dgSpecHash": "amGTbQYOPgBpiGPd+Qz/gMQivB4y3TQnumwuFyRd+WnSS5b25kD01A32BcZh7ysYkL0GsNErTx9aaPYl+ly6xA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Acer\\source\\repos\\ManhNhungShop\\Api_Gateway\\Api_Gateway.csproj",
+  "projectFilePath": "E:\\app\\ManhNhungShop\\Api_Gateway\\Api_Gateway.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\awssdk.core\\3.7.202.10\\awssdk.core.3.7.202.10.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\awssdk.s3\\3.7.203.16\\awssdk.s3.3.7.203.16.nupkg.sha512",

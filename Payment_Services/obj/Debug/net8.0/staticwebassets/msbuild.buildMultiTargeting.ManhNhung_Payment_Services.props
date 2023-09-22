@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ManhNhung_Payment_Services.props" />
+</Project>
