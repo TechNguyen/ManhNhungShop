@@ -1,4 +1,5 @@
-﻿using ManhNhungShop.DataContext;
+﻿using Grpc.Core;
+using ManhNhungShop.DataContext;
 using ManhNhungShop.DataReturn;
 using ManhNhungShop.Interfaces;
 using ManhNhungShop.Models;
@@ -8,6 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.VisualBasic;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Hosting;
+using ManhNhungShop_Product_Service.Models;
+using ManhNhungShop_Product_Service.DataReturn;
 
 namespace ManhNhungShop.Controllers
 {
@@ -18,6 +22,10 @@ namespace ManhNhungShop.Controllers
         private readonly DbShopContext _dbShopContext;
         private readonly ILogger _logger;
         private readonly IProduct _product;
+
+
+
+
 
         public ProductController(ILogger<DbShopContext> logger, IProduct product, DbShopContext dbShopContext)
         {
@@ -160,6 +168,27 @@ namespace ManhNhungShop.Controllers
             catch (Exception ex)
             {
                 return NotFound(ex.Message);
+            }
+        }
+
+        [HttpPost("uploadfiletofolder")]
+        public async Task<IActionResult> UploadFileToFolder([FromForm] FileUpload files)
+        {
+            try
+            {
+
+                var result = await _product.Uploadfile(files);
+
+                UploadRes uploadres = new UploadRes();
+                if(result != null)
+                {
+                    uploadres.statusCode = 200;
+                    uploadres.statusMessage = result;
+                };
+                return Ok(uploadres);
+            } catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
     }

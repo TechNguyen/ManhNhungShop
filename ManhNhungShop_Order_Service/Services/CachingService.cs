@@ -11,7 +11,7 @@ namespace ManhNhungShop_Order_Service.Services
 
         public CachingService()
         {
-            var redis = ConnectionMultiplexer.Connect("localhost:6379");
+            var redis = ConnectionMultiplexer.Connect("localhost:6379")     ;
             _database = redis.GetDatabase();
             var ft = _database.FT();
             var json = _database.JSON();

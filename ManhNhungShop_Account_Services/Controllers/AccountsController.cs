@@ -1,8 +1,10 @@
 ﻿using ManhNhungShop_Account_Services.Interface;
 using ManhNhungShop_Account_Services.Models;
+using ManhNhungShop_Account_Services.Response;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq.Expressions;
 
 namespace ManhNhungShop_Account_Services.Controllers
 {
@@ -25,16 +27,18 @@ namespace ManhNhungShop_Account_Services.Controllers
         //login
         [HttpPost("login")]
         [AllowAnonymous]
-        public async Task<IActionResult> LoginForAccount([FromBody] Accounts account)
+        public async Task<IActionResult> LoginForAccount([FromBody] LoginModel accountlogin)
         {
             try
             {
-                var user = _accounts.Authentication(account);
-                if (user == null)
+                var user = await _accounts.Login(accountlogin);
+                if (user != null) {
+                    var token = _accounts.Generate(user);
+                    return Ok(token);
+                } else
                 {
-                    
+                    return NotFound("UserName or Password not correct");
                 }
-                return Ok();
             } catch( Exception ex)
             { 
                 return NotFound(ex.Message);
@@ -43,7 +47,7 @@ namespace ManhNhungShop_Account_Services.Controllers
         //logout
         [HttpGet("logout")]
         [Authorize(Roles = "Customer")]
-        public async Task<IActionResult> CreateNew([FromBody] Accounts account)
+        public async Task<IActionResult> Logout([FromBody] Accounts account)
         {
             try
             {
@@ -60,16 +64,42 @@ namespace ManhNhungShop_Account_Services.Controllers
         {
             try
             {
-                return Ok();
+                var result = await _accounts.CreateAccount(account);
+                if(result == true)
+                {
+                    AccountCreate accountres = new AccountCreate() {
+                        statusCode = 200,
+                        status = true,
+                        message = $"Create {account.UserName} successfiully!"
+                    
+                    };
+                        return Ok(accountres);
+                } else
+                {
+                    AccountCreate accountres = new AccountCreate()
+                    {
+                        statusCode = 409,
+                        status = false,
+                        message = $"Error when create new {account.UserName}"
+                    };
+                    return Ok(accountres);
+                }
             } catch(Exception ex)
             {
-                return NotFound(ex.Message);
+                AccountCreate accountres = new AccountCreate()
+                {
+                    statusCode = 401,
+                    status = false,
+                    message = ex.Message
+
+                };
+                return NotFound(accountres);
             }
         }
         //update detail information account
         [HttpPost("detail")]
         [Authorize(Roles = "Administrator,Customer")]
-        public async Task<IActionResult> UpdateDetailCustomer([FromBody] AccountsDetails accountdetail)
+        public async Task<IActionResult> UpdateDetailCustomer([FromBody] Accounts accountdetail)
         {
             try
             {

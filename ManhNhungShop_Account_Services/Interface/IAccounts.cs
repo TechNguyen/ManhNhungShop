@@ -4,10 +4,10 @@ namespace ManhNhungShop_Account_Services.Interface
 {
     public interface IAccounts
     {
-        Task<Accounts> Authentication(Accounts account);
-        Task<string> Generate(AccountsDetails account);
-        Task<bool> CreateAccount(Accounts account, string ConfirmPassword);
+        Task<Accounts> Login(LoginModel account);
+        Task<string> Generate(Accounts account);
+        Task<bool> CreateAccount(Accounts account);
 
-        Task<bool> UpdateDetails(AccountsDetails accountdetail);
+        Task<bool> UpdateDetails(Accounts accountdetail);
     }
 }

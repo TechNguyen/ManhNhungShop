@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Payment_Services.Models
 {
-    public class Payment
+    public class Payments
     {
         [Key]
         [StringLength(100)]

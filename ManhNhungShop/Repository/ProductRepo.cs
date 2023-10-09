@@ -1,4 +1,6 @@
-﻿using ManhNhungShop.DataContext;
+﻿using Amazon.Util.Internal.PlatformServices;
+using Firebase.Storage;
+using ManhNhungShop.DataContext;
 using ManhNhungShop.DataReturn;
 using ManhNhungShop.Interfaces;
 using ManhNhungShop.Models;
@@ -7,9 +9,27 @@ using ManhNhungShop_Product_Service.DataReturn;
 using ManhNhungShop_Product_Service.Models;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using System.Diagnostics.CodeAnalysis;
-
+using Microsoft.Extensions.Hosting;
+using FirebaseAdmin;
+using FirebaseAdmin.Auth;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using Firebase.Auth.Providers;
+using System.Runtime.CompilerServices;
+using Firebase.Auth;
+using Amazon.S3.Model;
+using System.Linq.Expressions;
+using Firebase.Auth.Repository;
+using Google.Cloud.Storage.V1;
+using Google.Apis.Auth.OAuth2;
+using Grpc.Auth;
+using Microsoft.Identity.Client.Platforms.Features.DesktopOs.Kerberos;
+using System.Security.AccessControl;
+using System.ComponentModel;
+using Google.Type;
+using System.ComponentModel.DataAnnotations;
 namespace ManhNhungShop.Repository
 {
     public class ProductRepo : IProduct
@@ -18,10 +38,22 @@ namespace ManhNhungShop.Repository
 
         private readonly ICachingServer _cachingServer;
 
-        public ProductRepo(DbShopContext dbShopContext, ICachingServer cachingServer )
+
+        private readonly Microsoft.Extensions.Hosting.IHostingEnvironment _env;
+
+
+        private static string apiKey = "AIzaSyCInZMWu8KLyTbH54GhFciTNDQRdfY7DO8";
+        private static string Bucket = "manhnhungmart.appspot.com";
+        private static string AuthEmail = "ndt13102003@gmail.com";
+        private static string AuthPassword = "leluuly1306@";
+        private static string authDomain =  "manhnhungmart.firebaseapp.com";
+        private static string projectId = "manhnhungmart";
+
+        public ProductRepo(DbShopContext dbShopContext, ICachingServer cachingServer, Microsoft.Extensions.Hosting.IHostingEnvironment env) 
         {
             _dbShopContext = dbShopContext;
             _cachingServer = cachingServer;
+            _env = env;
         }
         //create product
         public async Task<ProductCreateRes> CreateProduct(Products product)
@@ -35,14 +67,19 @@ namespace ManhNhungShop.Repository
             }
             else
             {
-                _dbShopContext.Products.Add(product);
-                _dbShopContext.SaveChangesAsync();
-                // add to redis
-                var expriseTime = DateTime.Now.AddMinutes(30);
-                _cachingServer.SetData<Products>($"products/{product.ProductId}", product, expriseTime);
-                productExist.isSuccess = true;
-                productExist.Message = "Product was added Successfully";
-                productExist.data = product;
+                var downloadStream = await Uploadfile(product.file);
+                product.ProductImage = downloadStream;
+                if(product.ProductImage != null)
+                {
+                    _dbShopContext.Products.Add(product);
+                    _dbShopContext.SaveChangesAsync();
+                    // add to redis
+                    var expriseTime = System.DateTime.Now.AddMinutes(30);
+                    _cachingServer.SetData<Products>($"products/{product.ProductId}", product, expriseTime);
+                    productExist.isSuccess = true;
+                    productExist.Message = "Product was added Successfully";
+                    productExist.data = product;
+                }
             }
             return productExist;
         }
@@ -74,7 +111,7 @@ namespace ManhNhungShop.Repository
             } else
             {
                 var products = _dbShopContext.Products.Skip((page - 1) * (int)pageSizes).Take((int)pageSizes).ToList();
-                var expriseTime = DateTime.Now.AddMinutes(30);
+                var expriseTime = System.DateTime.Now.AddMinutes(30);
                 _cachingServer.SetData<ICollection<Products>>($"products?page={page}", products, expriseTime);
                 //set data get  response
                 productRescs.pageSize = (int)pageSizes;
@@ -111,7 +148,7 @@ namespace ManhNhungShop.Repository
                 productRescs.isSuccess = true;
                 productRescs.data = product;
             }
-            var expirationTime = DateTime.Now.AddMinutes(30);
+            var expirationTime = System.DateTime.Now.AddMinutes(30);
             _cachingServer.SetData<Products>($"product?id={productId}", product, expirationTime);
             return productRescs;
         }
@@ -133,7 +170,7 @@ namespace ManhNhungShop.Repository
             else
             {
                 var productData = _dbShopContext.ProductsDetails.Where(p => p.ProductId == productId).FirstOrDefault();
-                var epriseTime = DateTime.Now.AddMinutes(30);
+                var epriseTime = System.DateTime.Now.AddMinutes(30);
                 _cachingServer.SetData<ProductsDetails>($"productDetail?Id={productId}", productData, epriseTime);
 
                 if(productData != null)
@@ -163,7 +200,7 @@ namespace ManhNhungShop.Repository
                 else
                 {
                     var productsType = _dbShopContext.Products.Where(p => p.ProductType == type).ToList();
-                    var expiretime = DateTime.Now.AddMinutes(30);
+                    var expiretime = System.DateTime.Now.AddMinutes(30);
                     _cachingServer.SetData<ICollection<Products>>($"product?type={type}", productsType, expiretime);
                     return productsType; 
                     
@@ -185,7 +222,7 @@ namespace ManhNhungShop.Repository
             } else
             {
                 var dataProduct = _dbShopContext.Products.Where(p => p.ProductType == typeProduct).ToList();
-                var expiration = DateTime.Now.AddMinutes(30);
+                var expiration = System.DateTime.Now.AddMinutes(30);
                 _cachingServer.SetData<List<Products>>($"product?type={typeProduct}", dataProduct, expiration);
                 return dataProduct;  
             }
@@ -209,7 +246,7 @@ namespace ManhNhungShop.Repository
                 } else
                 {
                     var dataProduct = _dbShopContext.Products.OrderBy(p => p.ProductPrice).ToList();
-                    var exppireTime = DateTime.Now.AddMinutes(30);
+                    var exppireTime = System.DateTime.Now.AddMinutes(30);
                     _cachingServer.SetData<ICollection<Products>>($"product?sortby={typesort}", dataProduct, exppireTime);
 
                     productMres.isSuccess = true;
@@ -241,7 +278,7 @@ namespace ManhNhungShop.Repository
                 // Update 
                 var updateProduct =  _dbShopContext.ProductsDetails.Where(p => p.ProductId == productId).FirstOrDefault();
                 //udpdate redis
-                var expriseTime = DateTime.Now.AddMinutes(30);
+                var expriseTime = System.DateTime.Now.AddMinutes(30);
                 _cachingServer.SetData<ProductsDetails>($"productsDetail?id={updateProduct.ProductId}", updateProduct, expriseTime);
                 _dbShopContext.Entry(updateProduct).CurrentValues.SetValues(products);    
 
@@ -326,12 +363,12 @@ namespace ManhNhungShop.Repository
             return false;
         }
 
-        public async Task<bool> SaleProduct(DateTime dateSale, SaleOff saleoff)
+        public async Task<bool> SaleProduct(System.DateTime dateSale, SaleOff saleoff)
         {
-            if(DateTime.Now.Date == dateSale)
+            if(System.DateTime.Now.Date == dateSale)
             {
                 //sale off theo tung mat hang
-                if(DateTime.Now.Date == dateSale.Date)
+                if(System.DateTime.Now.Date == dateSale.Date)
                 {
                     foreach (var typeProduct in saleoff.TypeProduct)
                     {
@@ -380,6 +417,61 @@ namespace ManhNhungShop.Repository
             {
                 return false;
             }
+        }
+
+
+        //upload img data product to firebase cloud
+            public async Task<string> UploadImageToFirebase(string FileName)
+            {
+                string folderName = "product_image";
+                string path = Path.Combine(_env.ContentRootPath, $"Images\\{folderName}");
+                string filePath = Path.Combine(path, FileName);
+                var objectname = $"product_img/{FileName}";
+                var credentialPath = Path.Combine(_env.ContentRootPath, "account.json");
+                var credential = GoogleCredential.FromFile(credentialPath)
+                .CreateScoped("https://www.googleapis.com/auth/cloud-platform");
+                var storageClient = await StorageClient.CreateAsync(credential);
+
+                var uploadOptions = new UploadObjectOptions
+                {
+                    PredefinedAcl = PredefinedObjectAcl.PublicRead
+                };
+                using(FileStream fs = new FileStream(filePath, FileMode.Open))
+                {
+                    var task = await storageClient.UploadObjectAsync(Bucket, objectname, null, fs, uploadOptions);
+                    try
+                    {
+                        return task.MediaLink;
+                    }catch
+                    {
+                        return null;
+                    }
+                }
+            }
+
+
+        public async Task<string> Uploadfile(FileUpload fileUpload)
+        {
+            if(fileUpload.files.Length > 0)
+            {
+                string fileName = $"{Path.GetFileNameWithoutExtension(fileUpload.fileName)}_{System.DateTime.Now.ToString("dd-mm-yyyy-h-mm-tt")}{Path.GetExtension(fileUpload.files.FileName)}";
+
+                string path = $"Images\\product_image";
+                using (FileStream fs = new FileStream(Path.Combine(Path.Combine(_env.ContentRootPath, path), fileName), FileMode.Create)) {
+                    fileUpload.files.CopyToAsync(fs);
+                    fs.FlushAsync();
+                }
+
+                try
+                {
+                    string downloadUrl = await UploadImageToFirebase(fileName);
+                    return downloadUrl;
+                } catch
+                {
+                    return null;
+                }
+            }
+            return "Not found files";
         }
     }
 }

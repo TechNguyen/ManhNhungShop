@@ -17,13 +17,14 @@ namespace ManhNhungShop.Interfaces
         Task<ProductUpdateRes> UpdateProduct(ProductsDetails products, int productId);
         Task<bool> DeleteSoftProduct(int productId);
         Task<bool> RestoreProduct(int productId);
-       Task<bool> DeleteProduct (int productId );
+        Task<bool> DeleteProduct (int productId );
 
         //Task<List<Products>>SrtProductByTime();
 
         Task<List<Products>> GetProductByType(string typeProduct);
         Task<bool> SaleProduct(DateTime date, SaleOff saleoff);
-    
+        Task<string> UploadImageToFirebase(string FileName);
+        Task<string> Uploadfile(FileUpload fileUpload);
         bool ProductExist(int ProductId);
         bool ProductDeleteSoftExits(int productId);
     }

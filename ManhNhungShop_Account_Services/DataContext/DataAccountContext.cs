@@ -10,8 +10,7 @@ namespace ManhNhungShop_Account_Services.DataContext
         }
 
         public DbSet<Accounts> Accounts { set; get; }
-
-        public DbSet<AccountsDetails> AccountsDetails { set; get; }
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
