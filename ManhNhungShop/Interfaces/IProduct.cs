@@ -9,7 +9,7 @@ namespace ManhNhungShop.Interfaces
     public interface IProduct
     {
         Task<ProductRescs> GetAllProduct(int page);
-        Task<ProductCreateRes> CreateProduct(Products product);
+        Task<ProductCreateRes> CreateProduct(Products product, FileUpload files);
         Task<ProductCreateRes> GetProductById(int productId);
         Task<ProductDetailRes> GetProductDetail(int productId);
         ProductMainRes SortByMoney(int typesort);
@@ -27,6 +27,9 @@ namespace ManhNhungShop.Interfaces
         Task<string> Uploadfile(FileUpload fileUpload);
         bool ProductExist(int ProductId);
         bool ProductDeleteSoftExits(int productId);
+
+
+        Task<List<Categories>> getallCategories();
     }
 }
 

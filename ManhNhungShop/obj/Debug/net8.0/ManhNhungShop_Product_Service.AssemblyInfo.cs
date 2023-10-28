@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ManhNhungShop_Product_Service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1ebe72a2f35e9140a337444f2776b1508797cf4e")]
 [assembly: System.Reflection.AssemblyProductAttribute("ManhNhungShop_Product_Service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ManhNhungShop_Product_Service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

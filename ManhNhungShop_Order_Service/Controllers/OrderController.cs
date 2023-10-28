@@ -9,7 +9,7 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace ManhNhungShop_Order_Service.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class OrderController : ControllerBase
     {

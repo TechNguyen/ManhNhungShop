@@ -1,12 +1,10 @@
 ﻿using ManhNhungShop.Models;
+using ManhNhungShop_Product_Service.DataReturn;
 
 namespace ManhNhungShop.DataReturn
 {
-    public class ProductCreateRes
+    public class ProductCreateRes : ProceduRespon
     {
-        public bool isSuccess { set; get; }
-        public string Message { set; get; }
-        public int returncode { set; get; }
         public Products data { get; set; }  
     }
 }

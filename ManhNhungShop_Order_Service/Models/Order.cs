@@ -14,5 +14,5 @@ namespace ManhNhungShop_Order_Service.Models
         public int productId { set; get; }
         public DateTime createAt { set; get; }
         public DateTime modify { set; get; }
-    }
+    }   
 }

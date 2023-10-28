@@ -12,21 +12,17 @@ using Newtonsoft.Json;
 using Microsoft.AspNetCore.Hosting;
 using ManhNhungShop_Product_Service.Models;
 using ManhNhungShop_Product_Service.DataReturn;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ManhNhungShop.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase
     {
         private readonly DbShopContext _dbShopContext;
         private readonly ILogger _logger;
         private readonly IProduct _product;
-
-
-
-
-
         public ProductController(ILogger<DbShopContext> logger, IProduct product, DbShopContext dbShopContext)
         {
             _product = product;
@@ -106,15 +102,15 @@ namespace ManhNhungShop.Controllers
         }
         //create new product
         [HttpPost("create")]
-        public async Task<IActionResult> CraeteNewProduct([FromBody] Products pro)
+        public async Task<IActionResult> CraeteNewProduct([FromForm] Products pro, [FromForm] FileUpload files)
         {
             try
             {
-                var productRes =  await _product.CreateProduct(pro);
+                var productRes = await _product.CreateProduct(pro,files);
                 return Ok(productRes);
             } catch(Exception ex)
             {
-                return NotFound(ex.Message);
+                return BadRequest(ex.Message);
             }
         }
         //upddate productbyId
@@ -176,7 +172,6 @@ namespace ManhNhungShop.Controllers
         {
             try
             {
-
                 var result = await _product.Uploadfile(files);
 
                 UploadRes uploadres = new UploadRes();
@@ -191,5 +186,31 @@ namespace ManhNhungShop.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+
+        //get category shop
+        [HttpGet("/products")]
+        public async Task<IActionResult> getCategory()
+        {
+            try
+            {
+                var listrs = await _product.getallCategories();
+                ProceduCateRes proceduCateRes = new ProceduCateRes
+                {
+                    isSuccess = true,
+                    message = "Get categories successfully!",
+                    listCate = listrs.ToList()
+                };
+                return Ok(proceduCateRes);
+            } catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
+        //[Authorize(Roles = "Admin")]
+        //[HttpPost("createCate")]
+
     }
 }

@@ -30,6 +30,8 @@ using System.Security.AccessControl;
 using System.ComponentModel;
 using Google.Type;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
+
 namespace ManhNhungShop.Repository
 {
     public class ProductRepo : IProduct
@@ -56,30 +58,33 @@ namespace ManhNhungShop.Repository
             _env = env;
         }
         //create product
-        public async Task<ProductCreateRes> CreateProduct(Products product)
+        public async Task<ProductCreateRes> CreateProduct(Products productCre, FileUpload files)
         {
+            Products product = new Products();
+            product.ProductDescrip = productCre.ProductDescrip;
+            product.ProductName = productCre.ProductName;
+            product.ProductType = productCre.ProductType;
+            product.ProductQuanlity = productCre.ProductQuanlity;
+            product.ProductImage = productCre.ProductImage; 
+            product.ProductCreateAt = System.DateTime.UtcNow;
+            product.ProductPrice = productCre.ProductPrice;
+            product.deleted = 0;
+            product.ProductUpdateAt = productCre.ProductUpdateAt;
             ProductCreateRes productExist = new ProductCreateRes();
-            if (ProductExist(product.ProductId))
-            {
-                productExist.isSuccess = false;
-                productExist.Message = "Products has been in Shop";
+            var filename = await Uploadfile(files);
+            product.ProductImage = filename;
+            if (product.ProductImage != null)
+            {   
+                _dbShopContext.Products.Add(product);
+                _dbShopContext.SaveChangesAsync();
+                // add to redis
+                var expriseTime = System.DateTime.Now.AddMinutes(30);
+
+                //_cachingServer.SetData<Products>($"products/{product.ProductId}", product, expriseTime);
+                productExist.isSuccess = true;
+                productExist.message = "Product was added Successfully";
                 productExist.data = product;
-            }
-            else
-            {
-                var downloadStream = await Uploadfile(product.file);
-                product.ProductImage = downloadStream;
-                if(product.ProductImage != null)
-                {
-                    _dbShopContext.Products.Add(product);
-                    _dbShopContext.SaveChangesAsync();
-                    // add to redis
-                    var expriseTime = System.DateTime.Now.AddMinutes(30);
-                    _cachingServer.SetData<Products>($"products/{product.ProductId}", product, expriseTime);
-                    productExist.isSuccess = true;
-                    productExist.Message = "Product was added Successfully";
-                    productExist.data = product;
-                }
+                productExist.statuscode = 200;
             }
             return productExist;
         }
@@ -299,26 +304,26 @@ namespace ManhNhungShop.Repository
         // deletesoft a product
         public async Task<bool> DeleteSoftProduct(int productId)
         {
-            if(ProductExist(productId))
-            {
-                var product = _dbShopContext.Products.FirstOrDefault(p => p.ProductId == productId);
-                var productDetail = _dbShopContext.ProductsDetails.FirstOrDefault(p => p.ProductId == productId);
-                ProductDeleSofts productDele = new ProductDeleSofts() {
-                    ProductId = productId,
-                    ProductName = product.ProductName,
-                    ProductDescrip = product.ProductDescrip,
-                    ProductPrice = product.ProductPrice,
-                    ProductQuanlity = product.ProductQuanlity,
-                    ProductType = product.ProductType,
-                };
-               _dbShopContext.ProductDeleSofts.Add(productDele);
-               _dbShopContext.Products.Remove(product);
-               _dbShopContext.ProductsDetails.Remove(productDetail);
-                //delete in redis
-                _cachingServer.RemoveData($"product?id={productId}");
-                _dbShopContext.SaveChangesAsync();
-                return true;
-            }
+            //if(ProductExist(productId))
+            //{
+            //    var product = _dbShopContext.Products.FirstOrDefault(p => p.ProductId == productId);
+            //    var productDetail = _dbShopContext.ProductsDetails.FirstOrDefault(p => p.ProductId == productId);
+            //    ProductDeleSofts productDele = new ProductDeleSofts() {
+            //        ProductId = productId,
+            //        ProductName = product.ProductName,
+            //        ProductDescrip = product.ProductDescrip,
+            //        ProductPrice = product.ProductPrice,
+            //        ProductQuanlity = product.ProductQuanlity,
+            //        ProductType = product.ProductType,
+            //    };
+            //   _dbShopContext.ProductDeleSofts.Add(productDele);
+            //   _dbShopContext.Products.Remove(product);
+            //   _dbShopContext.ProductsDetails.Remove(productDetail);
+            //    //delete in redis
+            //    _cachingServer.RemoveData($"product?id={productId}");
+            //    _dbShopContext.SaveChangesAsync();
+            //    return true;
+            //}
             return false;
         }
 
@@ -421,34 +426,34 @@ namespace ManhNhungShop.Repository
 
 
         //upload img data product to firebase cloud
-            public async Task<string> UploadImageToFirebase(string FileName)
-            {
-                string folderName = "product_image";
-                string path = Path.Combine(_env.ContentRootPath, $"Images\\{folderName}");
-                string filePath = Path.Combine(path, FileName);
-                var objectname = $"product_img/{FileName}";
-                var credentialPath = Path.Combine(_env.ContentRootPath, "account.json");
-                var credential = GoogleCredential.FromFile(credentialPath)
-                .CreateScoped("https://www.googleapis.com/auth/cloud-platform");
-                var storageClient = await StorageClient.CreateAsync(credential);
+        public async Task<string> UploadImageToFirebase(string FileName)
+        {
+            string folderName = "product_image";
+            string path = Path.Combine(_env.ContentRootPath, $"Images\\{folderName}");
+            string filePath = Path.Combine(path, FileName);
+            var objectname = $"product_img/{FileName}";
+            var credentialPath = Path.Combine(_env.ContentRootPath, "account.json");
+            var credential = GoogleCredential.FromFile(credentialPath)
+            .CreateScoped("https://www.googleapis.com/auth/cloud-platform");
+            var storageClient = await StorageClient.CreateAsync(credential);
 
-                var uploadOptions = new UploadObjectOptions
+            var uploadOptions = new UploadObjectOptions
+            {
+                PredefinedAcl = PredefinedObjectAcl.PublicRead
+            };
+            using(FileStream fs = new FileStream(filePath, FileMode.Open))
+            {
+                var task = await storageClient.UploadObjectAsync(Bucket, objectname, null, fs, uploadOptions);
+                try
                 {
-                    PredefinedAcl = PredefinedObjectAcl.PublicRead
-                };
-                using(FileStream fs = new FileStream(filePath, FileMode.Open))
+                    return task.MediaLink;
+                }catch
                 {
-                    var task = await storageClient.UploadObjectAsync(Bucket, objectname, null, fs, uploadOptions);
-                    try
-                    {
-                        return task.MediaLink;
-                    }catch
-                    {
-                        return null;
-                    }
+                    return null;
                 }
             }
-
+        }
+        //Uplaod file to firebase
 
         public async Task<string> Uploadfile(FileUpload fileUpload)
         {
@@ -457,21 +462,41 @@ namespace ManhNhungShop.Repository
                 string fileName = $"{Path.GetFileNameWithoutExtension(fileUpload.fileName)}_{System.DateTime.Now.ToString("dd-mm-yyyy-h-mm-tt")}{Path.GetExtension(fileUpload.files.FileName)}";
 
                 string path = $"Images\\product_image";
-                using (FileStream fs = new FileStream(Path.Combine(Path.Combine(_env.ContentRootPath, path), fileName), FileMode.Create)) {
+                string filePath = Path.Combine(path, fileName);
+                using (FileStream fs = new FileStream(Path.Combine(_env.ContentRootPath, filePath), FileMode.Create)) {
                     fileUpload.files.CopyToAsync(fs);
                     fs.FlushAsync();
                 }
-
                 try
                 {
                     string downloadUrl = await UploadImageToFirebase(fileName);
+           
+                    if(downloadUrl != null)
+                    {
+                        File.Delete(Path.Combine(_env.ContentRootPath, filePath));
+                    }
                     return downloadUrl;
                 } catch
                 {
                     return null;
                 }
             }
-            return "Not found files";
+            return null;
         }
+        // get product categories 
+        public async Task<List<Categories>> getallCategories()
+        {
+            try
+            {
+                List<Categories> listCate = await _dbShopContext.Categories.ToListAsync();
+                return listCate;
+            } catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        
+
     }
+
 }

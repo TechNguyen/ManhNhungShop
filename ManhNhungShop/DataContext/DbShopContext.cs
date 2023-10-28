@@ -1,4 +1,5 @@
 ﻿using ManhNhungShop.Models;
+using ManhNhungShop_Product_Service.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ManhNhungShop.DataContext
@@ -15,6 +16,8 @@ namespace ManhNhungShop.DataContext
         public DbSet<ProductDeleSofts> ProductDeleSofts { set; get ;}
         // PRRODUCT DETAIL
         public DbSet<ProductsDetails> ProductsDetails { get; set; }
+        
+        public DbSet<Categories> Categories { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
