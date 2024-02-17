@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\app\\ManhNhungShop\\Payment_Services\\ManhNhung_Payment_Services.csproj": {}
+    "E:\\WorkSpace\\Back C#\\ManhNhungShop\\Payment_Services\\ManhNhung_Payment_Services.csproj": {}
   },
   "projects": {
-    "E:\\app\\ManhNhungShop\\Payment_Services\\ManhNhung_Payment_Services.csproj": {
+    "E:\\WorkSpace\\Back C#\\ManhNhungShop\\Payment_Services\\ManhNhung_Payment_Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\app\\ManhNhungShop\\Payment_Services\\ManhNhung_Payment_Services.csproj",
+        "projectUniqueName": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\Payment_Services\\ManhNhung_Payment_Services.csproj",
         "projectName": "ManhNhung_Payment_Services",
-        "projectPath": "E:\\app\\ManhNhungShop\\Payment_Services\\ManhNhung_Payment_Services.csproj",
+        "projectPath": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\Payment_Services\\ManhNhung_Payment_Services.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "E:\\app\\ManhNhungShop\\Payment_Services\\obj\\",
+        "outputPath": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\Payment_Services\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,9 +35,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "default"
         }
       },
       "frameworks": {
@@ -80,6 +73,18 @@
               "target": "Package",
               "version": "[7.0.11, )"
             },
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[2.23.1, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.23.1, )"
+            },
+            "MongoDB.Driver.Core": {
+              "target": "Package",
+              "version": "[2.23.1, )"
+            },
             "Otp.NET": {
               "target": "Package",
               "version": "[1.3.0, )"
@@ -108,7 +113,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-preview.7.23376.3\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
