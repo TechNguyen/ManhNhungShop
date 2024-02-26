@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|e:\\workspace\\back c#\\manhnhungshop\\manhnhungshop\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|solutionrelative:manhnhungshop\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|e:\\workspace\\back c#\\manhnhungshop\\manhnhungshop\\entities\\product.model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|solutionrelative:manhnhungshop\\entities\\product.model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|e:\\workspace\\back c#\\manhnhungshop\\manhnhungshop\\services\\productservice\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|solutionrelative:manhnhungshop\\services\\productservice\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,20 +19,28 @@
       "RelativeMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|solutionrelative:manhnhungshop\\services\\productservice\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|e:\\workspace\\back c#\\manhnhungshop\\manhnhungshop\\models\\fileupload.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|solutionrelative:manhnhungshop\\models\\fileupload.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|e:\\workspace\\back c#\\manhnhungshop\\manhnhungshop\\models\\mongodbsetting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|solutionrelative:manhnhungshop\\models\\mongodbsetting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|e:\\workspace\\back c#\\manhnhungshop\\manhnhungshop\\services\\cachingserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|solutionrelative:manhnhungshop\\services\\cachingserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|e:\\workspace\\back c#\\manhnhungshop\\manhnhungshop\\services\\icachingserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|solutionrelative:manhnhungshop\\services\\icachingserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|e:\\workspace\\back c#\\manhnhungshop\\manhnhungshop\\datacontext\\mongodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|solutionrelative:manhnhungshop\\datacontext\\mongodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|e:\\workspace\\back c#\\manhnhungshop\\manhnhungshop\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|solutionrelative:manhnhungshop\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|e:\\workspace\\back c#\\manhnhungshop\\manhnhungshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|solutionrelative:manhnhungshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|e:\\workspace\\back c#\\manhnhungshop\\manhnhungshop\\entities\\product.model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|solutionrelative:manhnhungshop\\entities\\product.model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|e:\\workspace\\back c#\\manhnhungshop\\manhnhungshop\\models\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|e:\\workspace\\back c#\\manhnhungshop\\manhnhungshop\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|solutionrelative:manhnhungshop\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|e:\\workspace\\back c#\\manhnhungshop\\manhnhungshop\\models\\mongodbsetting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|solutionrelative:manhnhungshop\\models\\mongodbsetting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8C1FE31C-FC94-47B2-AFE0-BF2149646A36}|ManhNhungShop\\ManhNhungShop_Product_Service.csproj|e:\\workspace\\back c#\\manhnhungshop\\manhnhungshop\\models\\productdelesofts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,7 +66,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,24 +86,60 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
+              "Title": "FileUpload.cs",
+              "DocumentMoniker": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\ManhNhungShop\\Models\\FileUpload.cs",
+              "RelativeDocumentMoniker": "ManhNhungShop\\Models\\FileUpload.cs",
+              "ToolTip": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\ManhNhungShop\\Models\\FileUpload.cs",
+              "RelativeToolTip": "ManhNhungShop\\Models\\FileUpload.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-18T17:12:25.074Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ICachingServer.cs",
+              "DocumentMoniker": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\ManhNhungShop\\Services\\ICachingServer.cs",
+              "RelativeDocumentMoniker": "ManhNhungShop\\Services\\ICachingServer.cs",
+              "ToolTip": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\ManhNhungShop\\Services\\ICachingServer.cs",
+              "RelativeToolTip": "ManhNhungShop\\Services\\ICachingServer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-18T17:12:14.569Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CachingServer.cs",
+              "DocumentMoniker": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\ManhNhungShop\\Services\\CachingServer.cs",
+              "RelativeDocumentMoniker": "ManhNhungShop\\Services\\CachingServer.cs",
+              "ToolTip": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\ManhNhungShop\\Services\\CachingServer.cs",
+              "RelativeToolTip": "ManhNhungShop\\Services\\CachingServer.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAwwB0AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-18T17:12:13.649Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "ProductController.cs",
               "DocumentMoniker": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\ManhNhungShop\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "ManhNhungShop\\Controllers\\ProductController.cs",
               "ToolTip": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\ManhNhungShop\\Controllers\\ProductController.cs",
               "RelativeToolTip": "ManhNhungShop\\Controllers\\ProductController.cs",
-              "ViewState": "AQIAAJsAAAAAAAAAAAAcwIAAAAAAAAAA",
+              "ViewState": "AQIAAFAAAAAAAAAAAAAQwFQAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-16T06:42:33.287Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Product.model.cs",
               "DocumentMoniker": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\ManhNhungShop\\Entities\\Product.model.cs",
               "RelativeDocumentMoniker": "ManhNhungShop\\Entities\\Product.model.cs",
@@ -99,12 +147,11 @@
               "RelativeToolTip": "ManhNhungShop\\Entities\\Product.model.cs",
               "ViewState": "AQIAABYAAAAAAAAAAAAUwAYAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T19:31:26.726Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T19:31:26.726Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "Products.cs",
               "DocumentMoniker": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\ManhNhungShop\\Models\\Products.cs",
               "RelativeDocumentMoniker": "ManhNhungShop\\Models\\Products.cs",
@@ -112,12 +159,11 @@
               "RelativeToolTip": "ManhNhungShop\\Models\\Products.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAqwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T19:30:37.394Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T19:30:37.394Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "IProductService.cs",
               "DocumentMoniker": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\ManhNhungShop\\Services\\ProductService\\IProductService.cs",
               "RelativeDocumentMoniker": "ManhNhungShop\\Services\\ProductService\\IProductService.cs",
@@ -125,25 +171,23 @@
               "RelativeToolTip": "ManhNhungShop\\Services\\ProductService\\IProductService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T19:29:39.798Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T19:29:39.798Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ProductService.cs",
               "DocumentMoniker": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\ManhNhungShop\\Services\\ProductService\\ProductService.cs",
               "RelativeDocumentMoniker": "ManhNhungShop\\Services\\ProductService\\ProductService.cs",
               "ToolTip": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\ManhNhungShop\\Services\\ProductService\\ProductService.cs",
               "RelativeToolTip": "ManhNhungShop\\Services\\ProductService\\ProductService.cs",
-              "ViewState": "AQIAADEAAAAAAAAAAAA0wDsAAAAlAAAA",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAowAgAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T18:53:49.429Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T18:53:49.429Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\ManhNhungShop\\Program.cs",
               "RelativeDocumentMoniker": "ManhNhungShop\\Program.cs",
@@ -151,12 +195,11 @@
               "RelativeToolTip": "ManhNhungShop\\Program.cs",
               "ViewState": "AQIAAAoAAAAAAAAAAAAAABcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T18:48:07.938Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T18:48:07.938Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "ProductDeleSofts.cs",
               "DocumentMoniker": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\ManhNhungShop\\Models\\ProductDeleSofts.cs",
               "RelativeDocumentMoniker": "ManhNhungShop\\Models\\ProductDeleSofts.cs",
@@ -164,12 +207,11 @@
               "RelativeToolTip": "ManhNhungShop\\Models\\ProductDeleSofts.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T18:46:41.402Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T18:46:41.402Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
               "Title": "MongoDbSetting.cs",
               "DocumentMoniker": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\ManhNhungShop\\Models\\MongoDbSetting.cs",
               "RelativeDocumentMoniker": "ManhNhungShop\\Models\\MongoDbSetting.cs",
@@ -177,12 +219,11 @@
               "RelativeToolTip": "ManhNhungShop\\Models\\MongoDbSetting.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T18:40:14.179Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T18:40:14.179Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "appsettings.json",
               "DocumentMoniker": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\ManhNhungShop\\appsettings.json",
               "RelativeDocumentMoniker": "ManhNhungShop\\appsettings.json",
@@ -190,12 +231,11 @@
               "RelativeToolTip": "ManhNhungShop\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-02-15T18:36:38.681Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T18:36:38.681Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "MongoDbContext.cs",
               "DocumentMoniker": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\ManhNhungShop\\DataContext\\MongoDbContext.cs",
               "RelativeDocumentMoniker": "ManhNhungShop\\DataContext\\MongoDbContext.cs",
@@ -203,12 +243,11 @@
               "RelativeToolTip": "ManhNhungShop\\DataContext\\MongoDbContext.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T18:22:02.85Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T18:22:02.85Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "account.json",
               "DocumentMoniker": "E:\\WorkSpace\\Back C#\\ManhNhungShop\\ManhNhungShop\\account.json",
               "RelativeDocumentMoniker": "ManhNhungShop\\account.json",
@@ -216,8 +255,7 @@
               "RelativeToolTip": "ManhNhungShop\\account.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-02-15T18:36:40.913Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T18:36:40.913Z"
             }
           ]
         },
@@ -227,11 +265,11 @@
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
             }
           ]
         }

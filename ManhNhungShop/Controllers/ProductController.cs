@@ -43,8 +43,8 @@ namespace ManhNhungShop.Controllers
             {
                 return NotFound(ex.Message);
             }
-
         }
+
         //get product by id
         [HttpGet("product/{productId}")]
         public async Task<IActionResult> GetProductByProductId(int productId)
